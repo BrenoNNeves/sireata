@@ -12,7 +12,22 @@ import java.util.List;
 import br.edu.utfpr.dv.sireata.model.Departamento;
 
 public class DepartamentoDAO {
-
+	private void fechaConec(Connection conn, PreparedStatement stmt, ResultSet rs) throws SQLException {
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+	}
+	private void fechaConec(Connection conn, Statement stmt, ResultSet rs) throws SQLException {
+		if((rs != null) && !rs.isClosed())
+			rs.close();
+		if((stmt != null) && !stmt.isClosed())
+			stmt.close();
+		if((conn != null) && !conn.isClosed())
+			conn.close();
+	}
 	public Departamento buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -67,12 +82,7 @@ public class DepartamentoDAO {
 				return null;
 			}
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
@@ -97,12 +107,7 @@ public class DepartamentoDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
@@ -127,12 +132,7 @@ public class DepartamentoDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
@@ -159,12 +159,7 @@ public class DepartamentoDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
@@ -193,12 +188,7 @@ public class DepartamentoDAO {
 			
 			return list;
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
@@ -244,12 +234,7 @@ public class DepartamentoDAO {
 			
 			return departamento.getIdDepartamento();
 		}finally{
-			if((rs != null) && !rs.isClosed())
-				rs.close();
-			if((stmt != null) && !stmt.isClosed())
-				stmt.close();
-			if((conn != null) && !conn.isClosed())
-				conn.close();
+			fechaConec(conn, stmt, rs);
 		}
 	}
 	
