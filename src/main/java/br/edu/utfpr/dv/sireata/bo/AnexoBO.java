@@ -57,9 +57,6 @@ public class AnexoBO {
 		}
 	}
 	
-	public void excluir(Anexo anexo) throws Exception{
-		this.excluir(anexo.getIdAnexo());
-	}
 	
 	public void excluir(int id) throws Exception{
 		try{

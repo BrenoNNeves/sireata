@@ -63,9 +63,6 @@ public class AtaParticipanteBO {
 		}
 	}
 	
-	public void excluir(AtaParticipante participante) throws Exception{
-		this.excluir(participante.getIdAtaParticipante());
-	}
 	
 	public void excluir(int id) throws Exception{
 		try{

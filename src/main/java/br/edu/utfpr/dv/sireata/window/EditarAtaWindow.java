@@ -769,7 +769,7 @@ public class EditarAtaWindow extends EditarWindow {
                 			if(participante.getIdAtaParticipante() > 0){
 	                			AtaParticipanteBO bo = new AtaParticipanteBO();
 	                			
-								bo.excluir(participante);
+								bo.excluir(participante.getIdAtaParticipante());
                 			}
                         	
                         	ata.getParticipantes().remove(index);
@@ -864,7 +864,7 @@ public class EditarAtaWindow extends EditarWindow {
                 			if(anexo.getIdAnexo() > 0){
 	                			AnexoBO bo = new AnexoBO();
 	                			
-								bo.excluir(anexo);
+								bo.excluir(anexo.getIdAnexo());
                 			}
                         	
                         	ata.getAnexos().remove(index);
@@ -967,7 +967,7 @@ public class EditarAtaWindow extends EditarWindow {
                 			if(pauta.getIdPauta() > 0){
 	                			PautaBO bo = new PautaBO();
 	                			
-								bo.excluir(pauta);
+								bo.excluir(pauta.getIdPauta());
                 			}
                         	
                         	ata.getPauta().remove(index);
