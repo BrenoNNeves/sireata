@@ -75,7 +75,7 @@ public class EmailUtils {
 	public void sendEmail(String from, String[] to, String[] cc, String[] bcc, String subject, String body) {
         Properties props = System.getProperties();
         
-        //props.put("mail.smtp.starttls.enable", (this.isEnableTls() ? "true" : "false"));
+        
         props.put("mail.smtp.host", this.getHost());
         props.put("mail.smtp.user", this.getUser());
         props.put("mail.smtp.password", this.getPassword());

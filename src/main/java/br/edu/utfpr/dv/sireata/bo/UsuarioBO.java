@@ -181,8 +181,6 @@ public class UsuarioBO {
 					
 					Map<String, String> dataLdap = ldapUtils.getLdapProperties(login);
 	
-					//String cnpjCpf = dataLdap.get(LdapConfig.getInstance().getCpfField());
-					//String matricula = dataLdap.get(LdapConfig.getInstance().getRegisterField());
 					String nome = this.formatarNome(dataLdap.get(LdapConfig.getInstance().getNameField()));
 					String email = dataLdap.get(LdapConfig.getInstance().getEmailField());
 					
