@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import br.edu.utfpr.dv.sireata.dao.Database;
 import br.edu.utfpr.dv.sireata.dao.PautaDAO;
 import br.edu.utfpr.dv.sireata.model.Pauta;
 
-public class PautaBO {
+public class PautaBO extends Factory{
 	
 	public Pauta buscarPorId(int id) throws Exception{
 		try{
@@ -64,6 +65,12 @@ public class PautaBO {
 			
 			throw new Exception(e.getMessage());
 		}
+	}
+
+	@Override
+	public Database getDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

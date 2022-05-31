@@ -5,9 +5,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.edu.utfpr.dv.sireata.dao.AtaParticipanteDAO;
+import br.edu.utfpr.dv.sireata.dao.Database;
 import br.edu.utfpr.dv.sireata.model.AtaParticipante;
 
-public class AtaParticipanteBO {
+public class AtaParticipanteBO extends Factory{
 	
 	public AtaParticipante buscarPorId(int id) throws Exception{
 		try{
@@ -74,6 +75,12 @@ public class AtaParticipanteBO {
 			
 			throw new Exception(e.getMessage());
 		}
+	}
+
+	@Override
+	public Database getDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -15,6 +15,7 @@ import org.apache.pdfbox.multipdf.PDFMergerUtility;
 import br.edu.utfpr.dv.sireata.dao.AnexoDAO;
 import br.edu.utfpr.dv.sireata.dao.AtaDAO;
 import br.edu.utfpr.dv.sireata.dao.AtaParticipanteDAO;
+import br.edu.utfpr.dv.sireata.dao.Database;
 import br.edu.utfpr.dv.sireata.dao.OrgaoDAO;
 import br.edu.utfpr.dv.sireata.dao.PautaDAO;
 import br.edu.utfpr.dv.sireata.model.Anexo;
@@ -29,7 +30,7 @@ import br.edu.utfpr.dv.sireata.model.AtaReport;
 import br.edu.utfpr.dv.sireata.model.Orgao;
 import br.edu.utfpr.dv.sireata.model.ParticipanteReport;
 
-public class AtaBO {
+public class AtaBO extends Factory {
 	
 	public Ata buscarPorId(int id) throws Exception{
 		try{
@@ -510,5 +511,14 @@ public class AtaBO {
 		
 		return resultado;
 	}
+
+	@Override
+	public Database getDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
 
 }

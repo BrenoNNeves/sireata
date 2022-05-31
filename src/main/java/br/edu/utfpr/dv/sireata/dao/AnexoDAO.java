@@ -8,9 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.utfpr.dv.sireata.bo.AtaBO;
+import br.edu.utfpr.dv.sireata.bo.Factory;
 import br.edu.utfpr.dv.sireata.model.Anexo;
 
-public class AnexoDAO  extends Database<Anexo>{
+public class AnexoDAO  extends Database{
 	private void fechaConec(Connection conn, PreparedStatement stmt, ResultSet rs) throws SQLException {
 		if((rs != null) && !rs.isClosed())
 			rs.close();
@@ -147,6 +149,7 @@ public class AnexoDAO  extends Database<Anexo>{
 		
 		return anexo;
 	}
-
+	
+	
 
 }

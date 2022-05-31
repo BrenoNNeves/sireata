@@ -5,9 +5,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.edu.utfpr.dv.sireata.dao.CampusDAO;
+import br.edu.utfpr.dv.sireata.dao.Database;
 import br.edu.utfpr.dv.sireata.model.Campus;
 
-public class CampusBO {
+public class CampusBO extends Factory {
 	
 	public Campus buscarPorId(int id) throws Exception{
 		try{
@@ -82,6 +83,12 @@ public class CampusBO {
 			
 			throw new Exception(e.getMessage());
 		}
+	}
+
+	@Override
+	public Database getDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

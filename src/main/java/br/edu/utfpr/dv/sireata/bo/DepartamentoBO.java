@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import br.edu.utfpr.dv.sireata.dao.Database;
 import br.edu.utfpr.dv.sireata.dao.DepartamentoDAO;
 import br.edu.utfpr.dv.sireata.model.Departamento;
 
-public class DepartamentoBO {
+public class DepartamentoBO extends Factory{
 	
 	public Departamento buscarPorId(int id) throws Exception{
 		try{
@@ -95,6 +96,12 @@ public class DepartamentoBO {
 			
 			throw new Exception(e.getMessage());
 		}
+	}
+
+	@Override
+	public Database getDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

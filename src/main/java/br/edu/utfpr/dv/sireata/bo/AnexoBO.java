@@ -5,14 +5,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.edu.utfpr.dv.sireata.dao.AnexoDAO;
+import br.edu.utfpr.dv.sireata.dao.Database;
 import br.edu.utfpr.dv.sireata.model.Anexo;
 
-public class AnexoBO {
+public class AnexoBO extends Factory{
 
 	public Anexo buscarPorId(int id) throws Exception{
 		try{
 						
-			return new AnexoDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -49,7 +50,7 @@ public class AnexoBO {
 			this.validarDados(anexo);
 			
 			
-			return new AnexoDAO().salvar(anexo);
+			return getDAO().salvar(anexo);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -68,6 +69,12 @@ public class AnexoBO {
 			
 			throw new Exception(e.getMessage());
 		}
+	}
+
+	@Override
+	public Database<Anexo> getDAO() {
+		// TODO Auto-generated method stub
+		return new AnexoDAO();
 	}
 	
 }

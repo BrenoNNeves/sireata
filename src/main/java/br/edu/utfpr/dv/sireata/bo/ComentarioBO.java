@@ -5,10 +5,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.edu.utfpr.dv.sireata.dao.ComentarioDAO;
+import br.edu.utfpr.dv.sireata.dao.Database;
 import br.edu.utfpr.dv.sireata.model.Comentario;
 import br.edu.utfpr.dv.sireata.model.Comentario.SituacaoComentario;
 
-public class ComentarioBO {
+public class ComentarioBO extends Factory {
 	
 	public Comentario buscarPorId(int id) throws Exception{
 		try{
@@ -71,6 +72,12 @@ public class ComentarioBO {
 			
 			throw new Exception(e.getMessage());
 		}
+	}
+
+	@Override
+	public Database getDAO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
