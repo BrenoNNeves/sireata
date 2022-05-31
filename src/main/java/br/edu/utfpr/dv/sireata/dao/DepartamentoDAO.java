@@ -11,7 +11,7 @@ import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Departamento;
 
-public class DepartamentoDAO {
+public class DepartamentoDAO extends Database <Departamento>{
 	private void fechaConec(Connection conn, PreparedStatement stmt, ResultSet rs) throws SQLException {
 		if((rs != null) && !rs.isClosed())
 			rs.close();
@@ -28,6 +28,7 @@ public class DepartamentoDAO {
 		if((conn != null) && !conn.isClosed())
 			conn.close();
 	}
+	@Override
 	public Departamento buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -191,7 +192,7 @@ public class DepartamentoDAO {
 			fechaConec(conn, stmt, rs);
 		}
 	}
-	
+	@Override
 	public int salvar(Departamento departamento) throws SQLException{
 		boolean insert = (departamento.getIdDepartamento() == 0);
 		Connection conn = null;

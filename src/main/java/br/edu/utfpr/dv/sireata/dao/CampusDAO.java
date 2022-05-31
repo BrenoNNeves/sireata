@@ -11,7 +11,7 @@ import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Campus;
 
-public class CampusDAO {
+public class CampusDAO extends Database <Campus>{
 	private void fechaConec(Connection conn, PreparedStatement stmt, ResultSet rs) throws SQLException {
 		if((rs != null) && !rs.isClosed())
 			rs.close();
@@ -28,6 +28,7 @@ public class CampusDAO {
 		if((conn != null) && !conn.isClosed())
 			conn.close();
 	}
+	@Override
 	public Campus buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -152,7 +153,7 @@ public class CampusDAO {
 			fechaConec(conn, stmt, rs);
 		}
 	}
-	
+	@Override
 	public int salvar(Campus campus) throws SQLException{
 		boolean insert = (campus.getIdCampus() == 0);
 		Connection conn = null;

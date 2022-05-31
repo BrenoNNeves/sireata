@@ -11,7 +11,7 @@ import java.util.List;
 import br.edu.utfpr.dv.sireata.model.Comentario;
 import br.edu.utfpr.dv.sireata.model.Comentario.SituacaoComentario;
 
-public class ComentarioDAO {
+public class ComentarioDAO extends Database <Comentario> {
 	private void fechaConec(Connection conn, PreparedStatement stmt, ResultSet rs) throws SQLException {
 		if((rs != null) && !rs.isClosed())
 			rs.close();
@@ -28,6 +28,7 @@ public class ComentarioDAO {
 		if((conn != null) && !conn.isClosed())
 			conn.close();
 	}
+	@Override
 	public Comentario buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -98,7 +99,7 @@ public class ComentarioDAO {
 			fechaConec(conn, stmt, rs);
 		}
 	}
-	
+	@Override
 	public int salvar(Comentario comentario) throws SQLException{
 		boolean insert = (comentario.getIdComentario() == 0);
 		Connection conn = null;

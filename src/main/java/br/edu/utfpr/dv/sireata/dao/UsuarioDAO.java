@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.edu.utfpr.dv.sireata.model.Usuario;
 
-public class UsuarioDAO {
+public class UsuarioDAO extends Database<Usuario>{
 	private void fechaConec(Connection conn, PreparedStatement stmt, ResultSet rs) throws SQLException {
 		if((rs != null) && !rs.isClosed())
 			rs.close();
@@ -54,7 +54,7 @@ public class UsuarioDAO {
 				conn.close();
 		}
 	}
-	
+	@Override
 	public Usuario buscarPorId(int id) throws SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -81,7 +81,7 @@ public class UsuarioDAO {
 			if((conn != null) && !conn.isClosed())
 				conn.close();
 		}
-	}
+	}//Não desistir
 	
 	public String buscarEmail(int id) throws SQLException{
 		Connection conn = null;
@@ -158,7 +158,7 @@ public class UsuarioDAO {
 			fechaConec(conn, stmt, rs);
 		}
 	}
-	
+	@Override
 	public int salvar(Usuario usuario) throws SQLException{
 		boolean insert = (usuario.getIdUsuario() == 0);
 		Connection conn = null;
