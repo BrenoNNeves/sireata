@@ -15,7 +15,7 @@ public class ComentarioBO extends Factory {
 		try{
 			
 			
-			return new ComentarioDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -66,7 +66,7 @@ public class ComentarioBO extends Factory {
 			
 
 			
-			return new ComentarioDAO().salvar(comentario);
+			return getDAO().salvar(comentario);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -75,9 +75,9 @@ public class ComentarioBO extends Factory {
 	}
 
 	@Override
-	public Database getDAO() {
+	public Database<Comentario> getDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return getDAO();
 	}
 
 }

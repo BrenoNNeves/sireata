@@ -36,7 +36,7 @@ public class AtaBO extends Factory {
 		try{
 			
 			
-			return new AtaDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -200,7 +200,7 @@ public class AtaBO extends Factory {
 	public int salvar(Ata ata) throws Exception{
 		try{
 			
-			int id = new AtaDAO().salvar(ata);
+			int id = getDAO().salvar(ata);
 			
 			if(ata.getPauta() != null){
 				int i = 1;
@@ -513,9 +513,9 @@ public class AtaBO extends Factory {
 	}
 
 	@Override
-	public Database getDAO() {
+	public Database<Ata> getDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new AtaDAO();
 	}
 
 	

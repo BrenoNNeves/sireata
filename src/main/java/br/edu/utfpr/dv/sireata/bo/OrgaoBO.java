@@ -16,7 +16,7 @@ public class OrgaoBO extends Factory{
 		try{
 			
 			
-			return new OrgaoDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -161,7 +161,7 @@ public class OrgaoBO extends Factory{
 		try{
 
 			
-			return new OrgaoDAO().salvar(orgao);
+			return getDAO().salvar(orgao);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -170,9 +170,9 @@ public class OrgaoBO extends Factory{
 	}
 
 	@Override
-	public Database getDAO() {
+	public Database <Orgao>getDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new OrgaoDAO();
 	}
 
 }

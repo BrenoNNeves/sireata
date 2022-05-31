@@ -13,7 +13,7 @@ public class PautaBO extends Factory{
 	public Pauta buscarPorId(int id) throws Exception{
 		try{
 			
-			return new PautaDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -47,7 +47,7 @@ public class PautaBO extends Factory{
 			this.validarDados(pauta);
 			
 			
-			return new PautaDAO().salvar(pauta);
+			return getDAO().salvar(pauta);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -68,9 +68,9 @@ public class PautaBO extends Factory{
 	}
 
 	@Override
-	public Database getDAO() {
+	public Database<Pauta> getDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new PautaDAO();
 	}
 
 }

@@ -14,7 +14,7 @@ public class CampusBO extends Factory {
 		try{
 			
 			
-			return new CampusDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -77,7 +77,7 @@ public class CampusBO extends Factory {
 		
 		try{
 			
-			return new CampusDAO().salvar(campus);
+			return getDAO().salvar(campus);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -86,9 +86,9 @@ public class CampusBO extends Factory {
 	}
 
 	@Override
-	public Database getDAO() {
+	public Database<Campus> getDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new CampusDAO();
 	}
 
 }

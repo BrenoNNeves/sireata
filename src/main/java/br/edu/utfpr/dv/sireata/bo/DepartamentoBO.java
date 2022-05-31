@@ -13,7 +13,7 @@ public class DepartamentoBO extends Factory{
 	public Departamento buscarPorId(int id) throws Exception{
 		try{
 			
-			return new DepartamentoDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -90,7 +90,7 @@ public class DepartamentoBO extends Factory{
 		try{
 			
 			
-			return new DepartamentoDAO().salvar(departamento);
+			return getDAO().salvar(departamento);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -99,9 +99,9 @@ public class DepartamentoBO extends Factory{
 	}
 
 	@Override
-	public Database getDAO() {
+	public Database <Departamento> getDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new DepartamentoDAO();
 	}
 
 }

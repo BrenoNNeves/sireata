@@ -14,7 +14,7 @@ public class AtaParticipanteBO extends Factory{
 		try{
 			
 			
-			return new AtaParticipanteDAO().buscarPorId(id);
+			return getDAO().buscarPorId(id);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -56,7 +56,7 @@ public class AtaParticipanteBO extends Factory{
 			
 			
 			
-			return new AtaParticipanteDAO().salvar(participante);
+			return getDAO().salvar(participante);
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
 			
@@ -78,9 +78,9 @@ public class AtaParticipanteBO extends Factory{
 	}
 
 	@Override
-	public Database getDAO() {
+	public Database<AtaParticipante> getDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new AtaParticipanteDAO();
 	}
 
 }
